@@ -54,6 +54,12 @@ set."
   #+:ecl
   (when read-timeout
     (setf (sb-bsd-sockets:sockopt-receive-timeout (usocket:socket usocket)) read-timeout))
+  #+:clasp
+  (when write-timeout
+    (setf (sb-bsd-sockets:sockopt-send-timeout (usocket:socket usocket)) write-timeout))
+  #+:clasp
+  (when read-timeout
+    (setf (sb-bsd-sockets:sockopt-receive-timeout (usocket:socket usocket)) read-timeout))
   #+:openmcl
   (when read-timeout
     (setf (ccl:stream-input-timeout (usocket:socket usocket)) read-timeout))
