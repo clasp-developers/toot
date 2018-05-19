@@ -73,5 +73,5 @@ set."
   #+:cmu
   (setf (lisp::fd-stream-timeout (usocket:socket-stream usocket))
         (coerce read-timeout 'integer))
-  #-(or :clisp :ecl :openmcl :sbcl :cmu)
+  #-(or :clisp :ecl :clasp :openmcl :sbcl :cmu)
   (not-implemented 'set-timeouts))
